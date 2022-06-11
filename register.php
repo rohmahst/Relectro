@@ -45,11 +45,20 @@
 	<form class="form-signin">
 		<h1>Relectro</h1>
 		<h4>Toko Laptop dan Komputer</h4>
-		<h1 class="h3 mb-3 font-weight-normal">Please register</h1>
-		<label for="inputEmail" class="sr-only">Email address</label>
-		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-		<label for="inputPassword" class="sr-only">Password</label>
-		<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+		<br>
+
+		<div>
+			<label for="inputEmail" class="sr-only">Email address</label>
+			<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+		</div>
+
+		<div>
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		</div>
+
+		<hr>
 
 		<button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: #FFC800;">
 			Sign up
