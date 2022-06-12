@@ -11234,6 +11234,20 @@ p {
     }
 }
 
+header.masthead1 {
+    /* background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url(); */
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    background-color: lightblue;
+    /* color: #fff; */
+    /* background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url("#"); */
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
 header.masthead {
     padding-top: 10.5rem;
     padding-bottom: 6rem;

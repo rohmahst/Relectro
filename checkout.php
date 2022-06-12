@@ -43,8 +43,8 @@
 			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 				<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
 					<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-					<li class="nav-item active"><a class="nav-link" href="produk.php">Produk</a></li>
-					<li class="nav-item"><a class="nav-link" href="keranjang.php">Keranjang</a></li>
+					<li class="nav-item"><a class="nav-link" href="produk.php">Produk</a></li>
+					<li class="nav-item active"><a class="nav-link" href="keranjang.php">Keranjang</a></li>
 					<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
 				</ul>
 			</div>
@@ -54,39 +54,24 @@
 	<div class="container text-white">
 		<div class="row mb-5">
 			<div class="col-12 text-center">
-				Beberapa produk kami
+				Informasi Pembeli
 			</div>
 		</div>
-
-		<div class="row text-dark">
-			<!-- for -->
-			<?php
-			for ($i = 0; $i < 14; $i++) {
-			?>
-			<div class="col-md-3">
-				<div class="card-deck">
-					<div class="card card-sm m-1 p-1" style="width: 18rem;">
-						<img src="https://picsum.photos/<?= $i ?>" class="card-img-top" alt="..." width="200"
-							height="200">
-						<div class="card-body">
-							<h5 class="card-title">Produk <?= $i ?></h5>
-							<p class="card-text">
-								Baju dengan ukuran S, M, L, XL, XXL
-							</p>
-							<a href="#" class="btn btn-success">
-								<i class="fas fa-shopping-cart"></i>
-								Beli
-							</a>
-						</div>
-					</div>
-				</div>
+		<form>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Nama</label>
+				<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nama Lengkap">
 			</div>
-			<?php
-			}
-			?>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">No Handphone</label>
+				<input type="number" class="form-control" id="exampleFormControlInput1" placeholder="08xxxxxxxxxx">
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlTextarea1">Alamat Pengiriman</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">Konfirmasi Pemesanan</button>
+		</form>
 		</div>
-	</div>
 
 </body>
-
-</html>

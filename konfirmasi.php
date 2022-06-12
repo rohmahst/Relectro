@@ -8,7 +8,7 @@
 	<meta name="author" content="" />
 	<title>Relectro</title>
 	<!-- Favicon-->
-	<link rel="icon" type="image/x-icon" href="dist/assets/favicon.ico" />
+	<!-- <link rel="icon" type="image/x-icon" href="dist/assets/favicon.ico" /> -->
 	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 	<!-- Google fonts-->
@@ -43,50 +43,65 @@
 			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 				<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
 					<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-					<li class="nav-item active"><a class="nav-link" href="produk.php">Produk</a></li>
-					<li class="nav-item"><a class="nav-link" href="keranjang.php">Keranjang</a></li>
+					<li class="nav-item"><a class="nav-link" href="produk.php">Produk</a></li>
+					<li class="nav-item active"><a class="nav-link" href="keranjang.php">Keranjang</a></li>
 					<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<div class="container text-white">
-		<div class="row mb-5">
-			<div class="col-12 text-center">
-				Beberapa produk kami
-			</div>
-		</div>
-
-		<div class="row text-dark">
-			<!-- for -->
-			<?php
-			for ($i = 0; $i < 14; $i++) {
-			?>
-			<div class="col-md-3">
-				<div class="card-deck">
-					<div class="card card-sm m-1 p-1" style="width: 18rem;">
-						<img src="https://picsum.photos/<?= $i ?>" class="card-img-top" alt="..." width="200"
-							height="200">
-						<div class="card-body">
-							<h5 class="card-title">Produk <?= $i ?></h5>
-							<p class="card-text">
-								Baju dengan ukuran S, M, L, XL, XXL
-							</p>
-							<a href="#" class="btn btn-success">
-								<i class="fas fa-shopping-cart"></i>
-								Beli
-							</a>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Detail Pemesanan</h5>
+						<div class="d-flex">
+							<p class="card-text; col-md-6">No. Pemesanan</p>
+							<p class="card-text; col-md-6">1111</p>
+						</div>
+						<div class="d-flex">
+							<!-- <p class="card-text; col-md-4"></p> -->
+							<p class="card-text; col-md-4">Produk</p>
+							<!-- <p class="card-text; col-md-4"></p> -->
+						</div>
+						<div class="d-flex">
+							<p class="card-text; col-md-6">Laptop</p>
+							<p class="card-text; col-md-6">Rp8000000</p>
+						</div>
+						<div class="d-flex">
+							<p class="card-text; col-md-6">Total Harga</p>
+							<p class="card-text; col-md-6">Rp8000000</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<?php
-			}
-			?>
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Informasi Pengiriman</h5>
+						<div class="d-flex">
+							<p class="card-text; col-md-6">Nama Lengkap</p>
+							<p class="card-text; col-md-6">Amah</p>
+						</div>
+						<div class="d-flex">
+							<p class="card-text; col-md-6">No. Handhphone</p>
+							<p class="card-text; col-md-6">08xxxxxxxxx</p>
+						</div>
+						<div class="d-flex">
+							<p class="card-text; col-md-6">Alamat Penerima</p>
+							<p class="card-text; col-md-6">Jalan A. Yani</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-
-</body>
+		<div class="row">
+			<div class="col">
+				<a href="#" class="btn btn-primary">Lanjutkan Pembayaran</a>
+			</div>
+		</div>
+	</body>
 
 </html>

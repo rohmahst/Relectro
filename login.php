@@ -17,7 +17,6 @@
 	<link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
 
-
 	<style>
 		.bd-placeholder-img {
 			font-size: 1.125rem;

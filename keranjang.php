@@ -43,50 +43,75 @@
 			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 				<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
 					<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
-					<li class="nav-item active"><a class="nav-link" href="produk.php">Produk</a></li>
-					<li class="nav-item"><a class="nav-link" href="keranjang.php">Keranjang</a></li>
+					<li class="nav-item"><a class="nav-link" href="produk.php">Produk</a></li>
+					<li class="nav-item active"><a class="nav-link" href="keranjang.php">Keranjang</a></li>
 					<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<div class="container text-white">
-		<div class="row mb-5">
-			<div class="col-12 text-center">
-				Beberapa produk kami
-			</div>
-		</div>
-
-		<div class="row text-dark">
-			<!-- for -->
-			<?php
-			for ($i = 0; $i < 14; $i++) {
-			?>
-			<div class="col-md-3">
-				<div class="card-deck">
-					<div class="card card-sm m-1 p-1" style="width: 18rem;">
-						<img src="https://picsum.photos/<?= $i ?>" class="card-img-top" alt="..." width="200"
-							height="200">
-						<div class="card-body">
-							<h5 class="card-title">Produk <?= $i ?></h5>
-							<p class="card-text">
-								Baju dengan ukuran S, M, L, XL, XXL
-							</p>
-							<a href="#" class="btn btn-success">
-								<i class="fas fa-shopping-cart"></i>
-								Beli
-							</a>
-						</div>
-					</div>
+		<div class="container text-white">
+			<div class="row mb-5">
+				<div class="col-12 text-center">
+					Keranjang Belanja Anda
 				</div>
 			</div>
-			<?php
-			}
-			?>
+
+		<div class="col">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">No</th>
+						<th scope="col">Nama Produk</th>
+						<th scope="col">Harga</th>
+						<th scope="col">Aksi</th>
+					</tr>
+				</thead>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>
+						<a href="#" class="btn btn-danger">Hapus</a>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>
+						<a href="#" class="btn btn-danger">Hapus</a>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td>Larry</td>
+					<td>the Bird</td>
+					<td>
+						<a href="#" class="btn btn-danger">Hapus</a>
+				</tr>
+				<tr>
+					<th scope="row">4</th>
+					<td>Larry</td>
+					<td>the Bird</td>
+					<td>
+						<a href="#" class="btn btn-danger">Hapus</a>
+				</tr>
+			</table>
 		</div>
+
+		<!-- <div class="card">
+			<div class="card-header">
+				Featured
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">Special title treatment</h5>
+				<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+				<a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		</div> -->
+		<!-- <div class="row">
+			<div class="col-12 text-center">
+				<a href="checkout.php" class="btn btn-success">Checkout</a>
+			</div> -->
 	</div>
-
 </body>
-
-</html>
