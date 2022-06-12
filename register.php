@@ -42,11 +42,30 @@
 
 <body class="text-center">
 
-	<form class="form-signin">
+	<form class="form-signin" action="function/register.php" method="post">
 		<h1>Relectro</h1>
 		<h4>Toko Laptop dan Komputer</h4>
 
 		<br>
+
+		<!-- show the status of the registration -->
+		<?php
+		if (isset($_GET['status'])) {
+			if ($_GET['status'] == 'already_registered') {
+				echo '<div class="alert alert-danger" role="alert">
+						Email sudah terdaftar.
+					</div>';
+			} else if ($_GET['status'] == 'empty_fields') {
+				echo '<div class="alert alert-danger" role="alert">
+						Harap isi semua field.
+					</div>';
+			} else if ($_GET['status'] == 'registered') {
+				echo '<div class="alert alert-success" role="alert">
+						Berhasil mendaftar.
+					</div>';
+			}
+		}
+		?>
 
 		<div>
 			<label for="inputEmail" class="sr-only">Email address</label>

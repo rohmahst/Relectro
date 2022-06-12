@@ -41,11 +41,38 @@
 
 <body class="text-center">
 
-	<form class="form-signin">
+	<form class="form-signin" action="function/login.php" method="post">
 		<h1>Relectro</h1>
 		<h4>Toko Laptop dan Komputer</h4>
 
 		<br>
+
+		<?php
+		if (isset($_GET['status'])) {
+			if ($_GET['status'] == 'registered') {
+				echo '<div class="alert alert-success" role="alert">
+						Pendaftaran berhasil, silahkan login.
+					</div>';
+			} else if ($_GET['status'] == 'already_registered') {
+				echo '<div class="alert alert-danger" role="alert">
+						Email sudah terdaftar.
+					</div>';
+			} else if ($_GET['status'] == 'empty_fields') {
+				echo '<div class="alert alert-danger" role="alert">
+						Harap isi semua field.
+					</div>';
+			} else if ($_GET['status'] == 'signin_failed') {
+				echo '<div class="alert alert-danger" role="alert">
+						Email atau password salah.
+					</div>';
+			} else if ($_GET['status'] == 'failed') {
+				echo '<div class="alert alert-danger" role="alert">
+						Pendaftaran gagal.
+					</div>';
+			}
+		}
+		?>
+
 
 		<label for="inputEmail" class="sr-only">Email address</label>
 		<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>

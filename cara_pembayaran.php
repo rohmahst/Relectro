@@ -6,6 +6,7 @@ if (!isset($_SESSION['id'])) {
 	header("Location: login.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,14 +53,8 @@ if (!isset($_SESSION['id'])) {
 					<li class="nav-item"><a class="nav-link" href="index.php">Beranda</a></li>
 					<li class="nav-item"><a class="nav-link" href="produk.php">Produk</a></li>
 					<li class="nav-item"><a class="nav-link active" href="keranjang.php">Keranjang</a></li>
-					<!-- check if session is set -->
-					<?php if (isset($_SESSION['id'])) : ?>
-						<!-- profile and logout -->
-						<li class="nav-item"><a class="nav-link " href="profile.php"><?= !empty($_SESSION['nama']) ? $_SESSION['nama'] : $_SESSION['email']  ?></a></li>
-						<li class="nav-item"><a class="nav-link" href="function/logout.php">Logout</a></li>
-					<?php else : ?>
-						<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-					<?php endif; ?>
+					<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+
 				</ul>
 			</div>
 		</div>
@@ -68,7 +63,7 @@ if (!isset($_SESSION['id'])) {
 	<div class="container my-5" style="padding-top: 100px;">
 		<div class="row mb-5">
 			<div class="col-12 text-uppercase h5">
-				Informasi Pembeli
+				Tata Cara Pembayaran dengan <?php echo $_GET['metode']; ?>
 			</div>
 		</div>
 
@@ -76,58 +71,11 @@ if (!isset($_SESSION['id'])) {
 
 			<div class="col-md-9">
 				<?php
-				$sql = "SELECT * FROM keranjang JOIN isi_keranjang ON keranjang.id = isi_keranjang.id_keranjang JOIN barang ON isi_keranjang.id_barang = barang.id WHERE id_user = '$_SESSION[id]' and status_keranjang = '0'"; // get item from table keranjang where id_user = $_SESSION['id'] and status_keranjang = 0 (not yet paid)
-				$query = mysqli_query($conn, $sql);
-				$total = mysqli_num_rows($query);
-				$keranjang = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-				$totalHarga = 0;
-				foreach ($keranjang as $item) {
-					$totalHarga += $item['harga'];
-				}
-
+				$sql = "SELECT * FROM cara_pembayaran WHERE kode_metode = '" . $_GET['metode'] . "'";
+				$result = $conn->query($sql);
+				$row = $result->fetch_assoc();
+				echo $row['cara_bayar'];
 				?>
-
-				<form action="function/create_invoice.php" method="POST" id="formIdentitas">
-					<!-- hidden id keranjang -->
-					<input type="hidden" name="id_keranjang" value="<?= $keranjang[0]['id_keranjang'] ?>">
-					<!-- make invoice number yymmddhhmmss -->
-					<input type="hidden" name="invoice" value="INV-<?= date('ymdHis') . $_SESSION['id'] ?>">
-					<!-- hidden total harga -->
-					<input type="hidden" name="total_harga" value="<?= $totalHarga ?>">
-					<?php
-					$sql = "SELECT * FROM invoice ORDER BY id DESC LIMIT 1";
-					?>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="nama">Nama</label>
-								<input type="text" class="form-control" id="nama" placeholder="Nama" value="<?= !empty($_SESSION['nama']) ? $_SESSION['nama'] : $_SESSION['email']  ?>" name="nama" required>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="email">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="Email" value="<?= $_SESSION['email'] ?? '' ?>" name="email" required>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="alamat">Alamat</label>
-								<input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="<?= $_SESSION['alamat'] ?? '' ?>" required>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="no_hp">No. HP</label>
-								<input type="text" class="form-control" id="no_hp" placeholder="No. HP" name="no_hp" value="<?= $_SESSION['no_hp'] ?? '' ?>" required>
-							</div>
-						</div>
-					</div>
-				</form>
-
 			</div>
 			<div class="col-md-3">
 				<div class="card" style="width: 18rem;">
@@ -135,14 +83,14 @@ if (!isset($_SESSION['id'])) {
 						Ringkasan Belanja
 					</div>
 					<div class="card-body">
-
-						<p class="card-text">Total Barang : <span class="text-danger"><?= $total ?? 0 ?></span></p>
-						<p class="card-text">Total Harga : <span class="text-danger">
-								Rp<?= number_format($totalHarga, 0, ',', '.') ?>
-							</span></p>
-						<hr>
-
-						<button type="submit" form="formIdentitas" class="btn btn-success">Lanjutkan</button>
+						<?php
+						// get invoice where invoice_number = $_GET['invoice']
+						$sql = "SELECT * FROM invoice WHERE invoice_number = '" . $_GET['invoice'] . "'";
+						$result = $conn->query($sql);
+						$row = $result->fetch_assoc();
+						?>
+						<p class="card-text">Total Harga : <strong>Rp. <?= number_format($row['total_harga'], 0, ',', '.'); ?></strong></p>
+						<p class="card-text">Nomor Invoice : <strong><?= $row['invoice_number']; ?></strong></p>
 					</div>
 				</div>
 			</div>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,15 +30,22 @@
 			<a class="navbar-brand" href="#page-top">
 				<h2 style="font-family: 'Brush Script MT'">Relectro</h2>
 			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-					<li class="nav-item active"><a class="nav-link" href="#beranda">Beranda</a></li>
+					<li class="nav-item"><a class="nav-link active" href="index.php">Beranda</a></li>
 					<li class="nav-item"><a class="nav-link" href="produk.php">Produk</a></li>
 					<li class="nav-item"><a class="nav-link" href="keranjang.php">Keranjang</a></li>
-					<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+					<!-- check if session is set -->
+					<?php if (isset($_SESSION['id'])) : ?>
+						<!-- profile and logout -->
+						<li class="nav-item"><a class="nav-link" href="profile.php"><?= !empty($_SESSION['nama']) ? $_SESSION['nama'] : $_SESSION['email']  ?></a></li>
+						<li class="nav-item"><a class="nav-link" href="function/logout.php">Logout</a></li>
+					<?php else : ?>
+						<li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+					<?php endif; ?>
 				</ul>
 			</div>
 		</div>
@@ -51,7 +59,7 @@
 			<a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
 		</div>
 	</header>
-	
+
 	<!-- Services-->
 	<section class="page-section" id="services">
 		<div class="container">
@@ -97,12 +105,9 @@
 			<div class="row align-items-center text-white">
 				<div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
 				<div class="col-lg-4 my-3 my-lg-0">
-					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i
-							class="fab fa-twitter"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i
-							class="fab fa-facebook-f"></i></a>
-					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i
-							class="fab fa-linkedin-in"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
 				</div>
 				<div class="col-lg-4 text-lg-end">
 					<a class="link-dark text-decoration-none me-3 text-white" href="#!">Privacy Policy</a>
