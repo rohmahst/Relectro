@@ -3,16 +3,7 @@
 require "connection.php";
 session_start();
 
-// get all post data
-// array(7) { 
-// 	["id_keranjang"]=> string(1) "2" 
-// ["invoice"]=> string(17) "INV-2206122012024" 
-// ["total_harga"]=> string(7) "5637950" 
-// ["nama"]=> string(6) "Rafibr" 
-// ["email"]=> string(16) "rdf399@gmail.com" 
-// ["alamat"]=> string(34) "Jl. Janar Putih Pasar Batuah No.37" 
-// ["no_hp"]=> string(11) "82255303169" 
-// }
+
 $id_user = $_SESSION['id'];
 $id_keranjang = $_POST['id_keranjang'];
 $invoice = $_POST['invoice'];

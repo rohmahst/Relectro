@@ -200,7 +200,7 @@ if (!isset($_SESSION['id'])) {
 	<footer class="footer py-4" style="background-color:dimgray;">
 		<div class="container">
 			<div class="row align-items-center text-white">
-				<div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
+				<div class="col-lg-4 text-lg-start">Relectro &copy; </div>
 				<div class="col-lg-4 my-3 my-lg-0">
 					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
 					<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
